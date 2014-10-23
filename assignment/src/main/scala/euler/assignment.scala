@@ -18,10 +18,20 @@ object ProjectEuler {
 
   /* kokeilua 6
     stack overflow ongelma tällä tavalla
+    	
+
+        def problem2() :Int = {
+            def fib (a :Int, b :Int) :Int =
+                    (if (b % 2 == 0) b else 0) + (if (a+b > 4000000) 0 else fib(b, a+b))
+            def answer = problem2()
+            answer
+    }
+
+    en oikeen löytänyt mitään järkevää tapaa implementoida tailia, olettaen että se edes auttaisi
     edellisissä kokeiluissa ongelmia parametrien arvojen kanssa
     ongelmat korjattu muuttamalla koko shaiba ihan erillaiseks
     voisi tehdä hienostelu muutoksia käyttämällä Int:Limit:iä, mutta katsotaan jos sen sitten myöhemmin implementois
-    nyt vähän breikkiä...
+    nyt vähän breikkiä... kiitos Joona Semi
   */
  def problem2(): Int = {
    
