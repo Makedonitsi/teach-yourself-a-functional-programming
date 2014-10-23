@@ -14,11 +14,15 @@ object ProjectEuler {
    */
   
 
+//testailussa kestää ärsyttävän kauan
 
-   // kokeilua 1
-   //stack overflow ongelma tällä tavalla
-   //edellisissä kokeiluissa ongelmia parametrien arvojen kanssa
-   //
+  /* kokeilua 6
+    stack overflow ongelma tällä tavalla
+    edellisissä kokeiluissa ongelmia parametrien arvojen kanssa
+    ongelmat korjattu muuttamalla koko shaiba ihan erillaiseks
+    voisi tehdä hienostelu muutoksia käyttämällä Int:Limit:iä, mutta katsotaan jos sen sitten myöhemmin implementois
+    nyt vähän breikkiä...
+  */
  def problem2(): Int = {
    
     def isEven(x:Int):Boolean = x % 2 == 0
@@ -47,7 +51,11 @@ object ProjectEuler {
    *
    */
    
-   
+  /* for toimiikin scalassa?
+    tärkeintä tajuta muuttaa numerot Stringeiksi ja vaatia että on sama toisinpäin
+    Tutki lisää mitä kaikeka yieldillä voi tehdä.
+    
+  */
     def problem4(): Int = {
       ((for (x <- 100 until 1000; y <- x until 1000) yield x * y) filter (x => x.toString == x.toString.reverse)).max
     }
