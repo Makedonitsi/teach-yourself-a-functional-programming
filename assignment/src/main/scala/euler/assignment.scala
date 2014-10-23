@@ -12,7 +12,14 @@ object ProjectEuler {
    * By considering the terms in the Fibonacci sequence whose values do not
    * exceed four million, find the sum of the even-valued terms.
    */
-  def problem2(): Int = ???
+  
+    def problem2(a :Int, b :Int) :Int =
+    (if (b % 2 == 0) b else 0) + (if (a+b > 4000000) 0 else problem2(b, a+b))
+    def answer = problem2(1, 2)
+    
+   
+
+
 
   /*
    * Largest palindrome product
@@ -23,7 +30,12 @@ object ProjectEuler {
    * Find the largest palindrome made from the product of two 3-digit numbers.
    *
    */
-  def problem4(): Int = ???
+   
+   
+    def problem4(x:Int, y:Int): Int = 
+      ((for (x <- 100 until 1000; y <- x until 1000) yield x * y) filter (x => x.toString == x.toString.reverse)).max
+    
+
 
   /*
    * Special Pythagorean triplet
@@ -36,7 +48,16 @@ object ProjectEuler {
    * There exists exactly one Pythagorean triplet for which a + b + c = 1000.
    * Find the product abc.
    */
-  def problem9(): Int = ???
+   
+    def problem9(a:Int, b:Int, c:Int): Int =
+    (for{
+      a <- (1 until 1000)
+      b <- (a until 1000)
+      c <- (b until 1000)
+      if (a*a + b*b == c*c && a+b+c == 1000)
+    }yield a*b*c).head
+  
+  //rules((a*a + b*b == c*c && a < b && b < c && a+b+c == 1000)
 
 
   /*
