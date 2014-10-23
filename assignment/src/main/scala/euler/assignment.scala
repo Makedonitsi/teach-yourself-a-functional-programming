@@ -13,11 +13,27 @@ object ProjectEuler {
    * exceed four million, find the sum of the even-valued terms.
    */
   
-    def problem2(a :Int, b :Int) :Int =
-    (if (b % 2 == 0) b else 0) + (if (a+b > 4000000) 0 else problem2(b, a+b))
-    def answer = problem2(1, 2)
-    
+
+
+   // kokeilua 1
+   //stack overflow ongelma tällä tavalla
+   //edellisissä kokeiluissa ongelmia parametrien arvojen kanssa
+   //
+ def problem2(): Int = {
    
+    def isEven(x:Int):Boolean = x % 2 == 0
+   
+    def wantedFib(a:Int, b:Int, sum:Int):Int = {
+      if(b > 4000000) {
+        sum
+      } else if(isEven(b)){
+        wantedFib(b, a+b, sum+b)
+      } else
+        wantedFib(b, a+b, sum)
+   }
+  wantedFib(0, 1, 0)
+  }
+
 
 
 
@@ -32,9 +48,9 @@ object ProjectEuler {
    */
    
    
-    def problem4(x:Int, y:Int): Int = 
+    def problem4(): Int = {
       ((for (x <- 100 until 1000; y <- x until 1000) yield x * y) filter (x => x.toString == x.toString.reverse)).max
-    
+    }
 
 
   /*
@@ -49,13 +65,14 @@ object ProjectEuler {
    * Find the product abc.
    */
    
-    def problem9(a:Int, b:Int, c:Int): Int =
-    (for{
-      a <- (1 until 1000)
-      b <- (a until 1000)
-      c <- (b until 1000)
-      if (a*a + b*b == c*c && a+b+c == 1000)
-    }yield a*b*c).head
+    def problem9(): Int ={
+      (for{
+        a <- (1 until 1000)
+        b <- (a until 1000)
+        c <- (b until 1000)
+        if (a*a + b*b == c*c && a+b+c == 1000 && a<b && b<c)
+      }yield a*b*c).head
+    }
   
   //rules((a*a + b*b == c*c && a < b && b < c && a+b+c == 1000)
 
