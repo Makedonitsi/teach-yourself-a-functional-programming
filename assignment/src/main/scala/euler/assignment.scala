@@ -16,6 +16,7 @@ object ProjectEuler {
 
 //testailussa kestää ärsyttävän kauan
 
+
   /* kokeilua 6
     stack overflow ongelma tällä tavalla
     	
@@ -31,7 +32,7 @@ object ProjectEuler {
     edellisissä kokeiluissa ongelmia parametrien arvojen kanssa
     ongelmat korjattu muuttamalla koko shaiba ihan erillaiseks
     voisi tehdä hienostelu muutoksia käyttämällä Int:Limit:iä, mutta katsotaan jos sen sitten myöhemmin implementois
-    nyt vähän breikkiä... kiitos Joona Semi
+    nyt vähän breikkiä... kiitos Joona 
   */
  def problem2(): Int = {
    
@@ -83,6 +84,11 @@ object ProjectEuler {
    * Find the product abc.
    */
    
+   /*
+      jokainen koklmion sivu pitää rajata oleman alle 1000
+      sitten vain annetaan if lauseelle säännöt siihen mitä vaadittavien numeroiden pitää täyttää
+      lopuksi yieldataan vaadittu kertoma ja siitä head(vastauksia on vain yksi, mutta tällä tavalla sen saa nätisti ulos)
+   */
     def problem9(): Int ={
       (for{
         a <- (1 until 1000)
