@@ -68,7 +68,16 @@ object ProjectEuler {
     
   */
     def problem4(): Int = {
-      ((for (x <- 100 until 1000; y <- x until 1000) yield x * y) filter (x => x.toString == x.toString.reverse)).max
+      //((for (x <- 100 until 1000; y <- x until 1000) yield x * y) filter (x => x.toString == x.toString.reverse)).max
+      
+      //joonan ohjeistuksella ilman for looppia
+        def lista(a:Int, b:Int): List[Int] = {
+          
+          Range(a,b).toList
+          
+        }
+      
+      lista(100,999).view.flatMap(a =>lista(100,999).map(b => a*b)).filter(a =>(a.toString == a.toString.reverse)).max
     }
 
 
